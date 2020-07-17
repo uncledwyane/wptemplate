@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>My Test</title>
+</head>
+
+<body>
+	<div id="app"></div>
+	<script src="./static/js/cn.tee3.avd-3.6.0.4.min.js?temp=20200623"></script>
+	<script src="./static/js/jquery.min.js"></script>
+	<script src="./static/js/config.js"></script>
+	<script src="./static/js/restAPI.js"></script>
+	<script>
+		var protocolStr = document.location.protocol;
+		var httpHost = window.location.host;
+		var hostname = window.location.hostname;
+		if(httpHost && hostname != "localhost" && hostname !="127.0.0.1"){
+			AVD_RESTAPI_URI = httpHost;
+		}
+
+		var AVDEngine = ModuleBase.use(ModulesEnum.avdEngine);
+		avdEngine = new AVDEngine();
+		avdEngine.setLog(Appender.browserConsole, LogLevel.debug);
+    
+    avdEngine.initDevice().otherwise(function(error){
+    	alert("初始化摄像头及麦克风设备失败."+error.message+"["+error.code+"]");
+    });
+
+		var version = avdEngine.getVersion();
+		log.info("avdEngine version:" + version);
+
+		var restApi = null;
+
+	  var Client = ModuleBase.use(ModulesEnum.client);
+    var client = null;
+
+	</script>
+</body>
+
+</html>

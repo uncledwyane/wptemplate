@@ -1,0 +1,1 @@
+var AVD_RESTAPI_URI = "dev.3tee.cn:81";
