@@ -1,2 +1,2 @@
-### A template for webpack
+### A template of webpack
 
